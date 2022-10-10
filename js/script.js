@@ -68,9 +68,11 @@ $(document).ready(function(){
             if (index % 2 === 0) {
                 makeWhite('.header')
                 makeWhite('.button-svg')
+                makeWhite('.footer')
             } else {
                 makeBlack('.header')
                 makeBlack('.button-svg')
+                makeBlack('.footer')
             }
             //console.log(currentScroll);
             // setTimeout(() => {
@@ -119,9 +121,11 @@ $(document).ready(function(){
                     if (index % 2 === 0) {
                         makeWhite('.header')
                         makeWhite('.button-svg')
+                        makeWhite('.footer')
                     } else {
                         makeBlack('.header')
                         makeBlack('.button-svg')
+                        makeBlack('.footer')
                     }
                 }
             }
