@@ -1,0 +1,153 @@
+@import './colors.scss';
+@import './settings';
+@import './viewport';
+@import './font-size.scss';
+
+*{
+    -webkit-tap-highlight-color: transparent;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+input,
+textarea,
+button,
+select {
+  font-family: $font-family;
+}
+
+a{
+    text-decoration: none;
+}
+
+body{
+    overflow-x: hidden;
+    height: unset !important;
+
+    font-weight: 400;
+    font-size: px-to-rem(18);
+    line-height: 140%;
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-primary);
+
+    &._lock, &._lock__pop{
+        overflow: hidden;
+    }
+}
+
+@mixin section-white {
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-primary);
+}
+
+@mixin section-black {
+    color: var(--color-text-secondary);
+    background-color: var(--color-bg-secondary);
+}
+
+@mixin text-body-1 {
+    font-size: px-to-rem(18);
+}
+@mixin text-body-2 {
+    font-size: px-to-rem(14);
+}
+@mixin text-body-3 {
+    font-size: px-to-rem(10);
+}
+
+@mixin button { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid transparent;
+    background-color: transparent;
+    
+
+    &._white {
+        border-color: var(--color-text-secondary);
+        color: var(--color-text-secondary);
+
+        &:hover,
+        &:focus-visible {
+            background-color: var(--color-text-secondary);
+            color: var(--color-text-primary);
+        }
+    }
+
+    &._black {
+        border-color: var(--color-text-primary);
+        color: var(--color-text-primary);
+
+        &:hover,
+        &:focus-visible {
+            background-color: var(--color-text-primary);
+            color: var(--color-text-secondary);
+        }
+    }
+
+}
+
+@mixin button-normal {
+    @include button;
+    border-radius: px-to-rem(40);
+    transition: background 0.3s ease, color 0.3s ease;
+    font-size: px-to-rem(18);
+    line-height: 130%;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: px-to-rem(4) px-to-rem(30);
+}
+
+@mixin form-input {
+    border: unset;
+    border-bottom: 1px solid inherit;
+    font-weight: 400;
+    font-size: px-to-rem(18);
+    color: inherit;
+    background-color: transparent;
+    padding: unset;
+    padding-bottom: 4px;
+
+    &::placeholder {
+        font-weight: 400;
+        font-size: px-to-rem(18);
+        color: inherit;
+    }
+}
+
+._container {
+    margin: 0 auto;
+
+    @include viewport-desktop {
+        max-width: 966px;
+    }
+    @include viewport-tablet {
+        max-width: 88.888%;
+    }
+    @include viewport-phone {
+        max-width: 88.888%;
+    }
+}
+
+.custom-logo-link {
+    display: block;
+    width: 100%;
+    cursor: pointer;
+
+    @include viewport-tablet-min {
+        max-width: px-to-rem(202);
+    }
+    @include viewport-phone {
+        max-width: px-to-rem(127);
+    }
+
+    svg{
+        width: 100%;
+        height: auto;
+    }
+}

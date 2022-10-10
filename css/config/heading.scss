@@ -1,0 +1,52 @@
+@mixin text-heading-styles {
+    margin: 0;
+    font-family: $font-family;
+    font-weight: normal;
+    line-height: 130%;
+    text-transform: uppercase;
+}
+
+@mixin text-heading-1 {
+    @include text-heading-styles;
+    font-weight: 500;
+
+    @include viewport-desktop {
+        font-size: px-to-rem(76);
+    }
+    @include viewport-tablet {
+        font-size: px-to-rem(53);
+    }
+    @include viewport-phone {
+        font-size: px-to-rem(30);
+    }
+}
+
+@mixin text-heading-2 {
+    @include text-heading-styles;
+    font-weight: 700;
+
+    @include viewport-desktop {
+        font-size: px-to-rem(36);
+    }
+    @include viewport-tablet {
+        font-size: px-to-rem(28);
+    }
+    @include viewport-phone {
+        font-size: px-to-rem(20);
+    }
+}
+
+@mixin text-heading-3 {
+    @include text-heading-styles;
+    font-weight: 700;
+
+    @include viewport-desktop {
+        font-size: px-to-rem(24);
+    }
+    @include viewport-tablet {
+        font-size: px-to-rem(21.5);
+    }
+    @include viewport-phone {
+        font-size: px-to-rem(19);
+    }
+}
