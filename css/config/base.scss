@@ -1,6 +1,7 @@
 @import './colors.scss';
 @import './settings';
 @import './viewport';
+@import './heading';
 @import './font-size.scss';
 
 *{
@@ -52,11 +53,26 @@ body{
 
 @mixin text-body-1 {
     font-size: px-to-rem(18);
+    line-height: 140%;
 }
 @mixin text-body-2 {
-    font-size: px-to-rem(14);
+    line-height: 140%;
+
+    @include viewport-desktop {
+        font-size: px-to-rem(24);
+    }
+    @include viewport-tablet-max {
+        font-size: px-to-rem(14);
+    }
 }
 @mixin text-body-3 {
+    line-height: 140%;
+
+    font-size: px-to-rem(14);
+}
+@mixin text-body-4 {
+    line-height: 140%;
+    
     font-size: px-to-rem(10);
 }
 

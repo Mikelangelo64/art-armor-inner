@@ -35,12 +35,12 @@ $(document).ready(function(){
     }
 
     //scroll
-    let sections = Array.from(document.querySelectorAll('.section'))
+    let sections = Array.from(document.querySelectorAll('section'))
     let index = 0
     let currentSection = sections[index]
     function slide() {
         h = document.documentElement.clientHeight
-        $('.section').css('height', h)
+        $('section').css('height', h)
     }
 
     $(window).resize(slide)
@@ -65,7 +65,7 @@ $(document).ready(function(){
             }
             console.log(index);
 
-            if (index % 2 === 0) {
+            if (index === 0) {
                 makeWhite('.header')
                 makeWhite('.button-svg')
                 makeWhite('.footer')
@@ -118,7 +118,7 @@ $(document).ready(function(){
             callback = (entries, observer) => {
                 if (entries[0].isIntersecting) {
                     //console.log(index, entries);
-                    if (index % 2 === 0) {
+                    if (index === 0) {
                         makeWhite('.header')
                         makeWhite('.button-svg')
                         makeWhite('.footer')
@@ -135,4 +135,14 @@ $(document).ready(function(){
             //observerFoot.observe(section)
         })
     }
+
+    //swipers
+    let swiperWorks = new Swiper(".swiper.works-swiper", {
+        navigation: {
+            nextEl: ".works__btns__container .swiper-button-next",
+            prevEl: ".works__btns__container .swiper-button-prev",
+        },
+        slidesPerView: 1,
+        spaceBetween: 18,
+    })
 })
