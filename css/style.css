@@ -461,6 +461,18 @@ form input[type=submit]._black:focus-visible {
   fill: var(--color-text-secondary);
 }
 
+section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 .header {
   position: fixed;
   top: 0;
@@ -1163,13 +1175,11 @@ form input[type=submit]._black:focus-visible {
 .white {
   color: var(--color-text-primary);
   background-color: var(--color-bg-primary);
-  padding: 20px;
 }
 
 .black {
   color: var(--color-text-secondary);
   background-color: var(--color-bg-secondary);
-  padding: 20px;
 }
 
 .banner__title__container {
@@ -1186,6 +1196,16 @@ form input[type=submit]._black:focus-visible {
   .banner__title__container {
     max-width: 84.16%;
     margin-bottom: 1.875rem;
+  }
+}
+@media (min-width: 900px) {
+  .banner__title__container.banner__title__mob {
+    display: none;
+  }
+}
+@media (max-width: 899px) {
+  .banner__title__container.banner__title__desk {
+    display: none;
   }
 }
 .banner__title__container svg {
@@ -1208,6 +1228,8 @@ form input[type=submit]._black:focus-visible {
 }
 @media (max-width: 899px) {
   .banner__content {
+    max-width: 63.636%;
+    margin: 0 10% 0 auto;
     -webkit-box-orient: vertical;
     -webkit-box-direction: reverse;
         -ms-flex-direction: column-reverse;

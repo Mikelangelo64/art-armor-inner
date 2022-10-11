@@ -148,6 +148,12 @@ form {
     }
 }
 
+section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 //HEADER
 
 .header {
@@ -763,11 +769,10 @@ form {
 
 .white {
     @include section-white;
-    padding: 20px;
 }
+
 .black {
     @include section-black;
-    padding: 20px;
 }
 
 .banner {
@@ -791,6 +796,18 @@ form {
             margin-bottom: px-to-rem(30);
         }
 
+        &.banner__title__mob {
+            @include viewport-tablet-min {
+                display: none;
+            }
+        }
+
+        &.banner__title__desk {
+            @include viewport-phone {
+                display: none;
+            }
+        }
+
         svg {
             width: 100%;
             height: auto;
@@ -807,6 +824,8 @@ form {
             margin: 0 auto;
         }
         @include viewport-phone {
+            max-width: 63.636%;
+            margin: 0 10% 0 auto;
             flex-direction: column-reverse;
         }
     }
