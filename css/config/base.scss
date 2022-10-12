@@ -30,6 +30,22 @@ body{
     overflow-x: hidden;
     height: unset !important;
 
+    /* width */
+    &::-webkit-scrollbar {
+        width: px-to-rem(8);
+    }
+    /* Track */
+    &::-webkit-scrollbar-track {
+        background-color: transparent; 
+        border: 1px solid var(--color-text-primary);
+        //border-radius: px-to-rem(10);
+    }
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--color-text-primary); 
+        //border-radius: px-to-rem(10);
+    }
+
     font-weight: 400;
     font-size: px-to-rem(18);
     line-height: 140%;

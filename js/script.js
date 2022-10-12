@@ -41,10 +41,20 @@ $(document).ready(function(){
     function slide() {
         h = document.documentElement.clientHeight
         $('section').css('height', h)
+        //$('section.contacts').css('height', 2 * h)
     }
 
-    $(window).resize(slide)
-    $(document).ready(slide)
+    if(!isMobile.any()){
+        $(window).resize(slide)
+        $(document).ready(slide)
+    } else{
+        $(window).resize(function(){
+            $('section').addClass('_mobile')
+        })
+        $(document).ready(function(){
+            $('section').addClass('_mobile')
+        })
+    }
     let currentScroll = window.scrollY
     let lastScroll = currentScroll
     let ticking = true
@@ -68,11 +78,11 @@ $(document).ready(function(){
             if (index === 0) {
                 makeWhite('.header')
                 makeWhite('.button-svg')
-                makeWhite('.footer')
+                //makeWhite('.footer')
             } else {
                 makeBlack('.header')
                 makeBlack('.button-svg')
-                makeBlack('.footer')
+                //makeBlack('.footer')
             }
             //console.log(currentScroll);
             // setTimeout(() => {
@@ -115,26 +125,47 @@ $(document).ready(function(){
     makeWhite('.header')
     makeWhite('.button-svg')
     if(isMobile.any()) {
-        sections.forEach((section, index) => {
-            callback = (entries, observer) => {
-                if (entries[0].isIntersecting) {
-                    //console.log(index, entries);
-                    if (index === 0) {
-                        makeWhite('.header')
-                        makeWhite('.button-svg')
-                        makeWhite('.footer')
-                    } else {
-                        makeBlack('.header')
-                        makeBlack('.button-svg')
-                        makeBlack('.footer')
-                    }
-                }
+        // sections.forEach((section, index) => {
+        //     callback = (entries, observer) => {
+        //         if (entries[0].isIntersecting) {
+        //             //console.log(index, entries);
+        //             if (index === 0) {
+        //                 makeWhite('.header')
+        //                 makeWhite('.button-svg')
+        //                 //makeWhite('.footer')
+        //             } else {
+        //                 makeBlack('.header')
+        //                 makeBlack('.button-svg')
+        //                 //makeBlack('.footer')
+        //             }
+        //         }
+        //     }
+        //     let observerHead = new IntersectionObserver(callback, {threshold: 0.5})
+        //     //let observerFoot = new IntersectionObserver(callback, {threshold: 0.2})
+        //     observerHead.observe(section)
+        //     //observerFoot.observe(section)
+        // })
+        
+        console.log(sections[1]);
+        callbackWhite = (entries, observer) => {
+            if (entries[0].isIntersecting) {
+                //console.log(index, entries);
+                makeWhite('.header')
+                makeWhite('.button-svg')                
             }
-            let observerHead = new IntersectionObserver(callback, {threshold: 0.5})
-            //let observerFoot = new IntersectionObserver(callback, {threshold: 0.2})
-            observerHead.observe(section)
-            //observerFoot.observe(section)
-        })
+        }
+        callbackBlack = (entries, observer) => {
+            if (entries[0].isIntersecting) {
+                //console.log(index, entries);
+                makeBlack('.header')
+                makeBlack('.button-svg')                
+            }
+        }
+        let observerWhite = new IntersectionObserver(callbackWhite, {threshold: 0.5})
+        let observerBlack = new IntersectionObserver(callbackBlack, {threshold: 0.5})
+        //let observerFoot = new IntersectionObserver(callback, {threshold: 0.2})
+        observerWhite.observe(sections[0])
+        observerBlack.observe(sections[1])
     }
 
     //popup open/close

@@ -43,11 +43,24 @@ a {
 body {
   overflow-x: hidden;
   height: unset !important;
+  /* width */
+  /* Track */
+  /* Handle */
   font-weight: 400;
   font-size: 1.125rem;
   line-height: 140%;
   color: var(--color-text-primary);
   background-color: var(--color-bg-primary);
+}
+body::-webkit-scrollbar {
+  width: 0.5rem;
+}
+body::-webkit-scrollbar-track {
+  background-color: transparent;
+  border: 1px solid var(--color-text-primary);
+}
+body::-webkit-scrollbar-thumb {
+  background-color: var(--color-text-primary);
 }
 body._lock, body._lock__pop {
   overflow: hidden;
@@ -491,6 +504,21 @@ section {
       -ms-flex-pack: center;
           justify-content: center;
 }
+@media (min-width: 1200px) {
+  section._mobile {
+    padding: 5rem 0;
+  }
+}
+@media (min-width: 900px) and (max-width: 1199px) {
+  section._mobile {
+    padding: 4.0625rem 0;
+  }
+}
+@media (max-width: 899px) {
+  section._mobile {
+    padding: 3.125rem 0;
+  }
+}
 
 .header {
   position: fixed;
@@ -506,11 +534,12 @@ section {
 }
 @media (max-width: 899px) {
   .header {
-    padding: 1.25rem 0 4.5625rem;
+    padding: 1.25rem 0 3.125rem;
   }
 }
 .header._black {
   color: var(--color-text-primary);
+  background-color: var(--color-bg-primary);
 }
 .header._black .header__logo {
   -webkit-filter: invert(1);
@@ -547,6 +576,7 @@ section {
 }
 .header._white {
   color: var(--color-text-secondary);
+  background-color: var(--color-bg-secondary);
 }
 .header._white .header__logo {
   -webkit-filter: invert(0);
@@ -672,8 +702,8 @@ section {
     bottom: 0;
     left: 50%;
     max-width: 5.4375rem;
-    -webkit-transform: translate(-50%, 0);
-            transform: translate(-50%, 0);
+    -webkit-transform: translate(-50%, -10%);
+            transform: translate(-50%, -10%);
   }
 }
 
@@ -1461,6 +1491,9 @@ section {
 }
 .popup__content .works-artist-info__description {
   margin-bottom: 1.875rem;
+}
+.banner {
+  height: 100vh;
 }
 .banner__title__container {
   overflow: visible;
