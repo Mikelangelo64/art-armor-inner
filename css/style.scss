@@ -1058,7 +1058,12 @@ section {
 //BANNER--------------------------------------------------
 
 .banner {
+    //min-height: px-to-rem(650);
     height: 100vh;
+
+    &._mobile {
+        padding: 0;
+    }
 
     //.banner__wrapper 
     &__wrapper {

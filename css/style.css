@@ -1495,6 +1495,9 @@ section {
 .banner {
   height: 100vh;
 }
+.banner._mobile {
+  padding: 0;
+}
 .banner__title__container {
   overflow: visible;
   margin: 0 auto;
