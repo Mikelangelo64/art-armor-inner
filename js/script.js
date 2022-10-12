@@ -195,7 +195,9 @@ $(document).ready(function(){
     function makeHorizontalScroll(section) {
         $(`${section} .date-list__months__item`).click(function(e){
             e.preventDefault()
-            $(`${section} .date-list`).fadeOut(300)
+            if (isMobile.any()) {
+                $(`${section} .date-list`).fadeOut(300)
+            }
             //select year and month for sorting
             const year = $(this).parent().parent().parent().children('.date-list__year').children('.year').val()
             const month = $(this).attr('data-month')

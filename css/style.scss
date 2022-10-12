@@ -1614,7 +1614,8 @@ section {
 //HORIZONTAL-------------------------------------
 
 .horizontal {
-    display: block;
+    display: flex;
+    flex-direction: column;
     
     //.horizontal__wrapper 
     &__wrapper {
