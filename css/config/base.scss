@@ -121,7 +121,7 @@ body{
 
 @mixin form-input {
     border: unset;
-    border-bottom: 1px solid inherit;
+    border-bottom: 1px solid var(--color-text-primary);
     font-weight: 400;
     font-size: px-to-rem(18);
     color: inherit;
@@ -137,10 +137,11 @@ body{
 }
 
 ._container {
+    width: 100%;
     margin: 0 auto;
 
     @include viewport-desktop {
-        max-width: 966px;
+        max-width: px-to-rem(966);
     }
     @include viewport-tablet {
         max-width: 88.888%;
