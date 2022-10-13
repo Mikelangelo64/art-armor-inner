@@ -108,6 +108,36 @@ $(document).ready(function(){
         document.addEventListener('scroll', listener)
     }
 
+    //menu anchors
+    $('.menu-list__item').click(function(e){
+        e.preventDefault()
+        const goto = $(e.target).attr('data-goto')
+        const currentIndex = $(e.target).attr('data-index')
+
+        $('.menu-burger').removeClass('_active')
+        $('.menu').removeClass('_active')
+        $('body').removeClass('_lock')
+        makeBlack('.header')
+        makeBlack('.button-svg')
+
+        if(!isMobile.any()){
+            document.removeEventListener('scroll', listener)
+            $('html, body').animate({
+                scrollTop: $(goto).offset().top
+            }, 200, "linear", () => {
+                currentScroll = window.scrollY
+                ticking = true
+                index = +currentIndex
+                document.addEventListener('scroll', listener)
+            })
+        } else {
+            $('html, body').animate({
+                scrollTop: $(goto).offset().top
+            }, 200, "linear")
+        }
+    })
+    
+
     //menu open
     $('.menu-burger').click(function(e){
         e.preventDefault()
@@ -126,8 +156,8 @@ $(document).ready(function(){
         $(section).addClass('_black')
     }
 
-    makeWhite('.header')
-    makeWhite('.button-svg')
+    // makeWhite('.header')
+    // makeWhite('.button-svg')
     if(isMobile.any()) {
         // sections.forEach((section, index) => {
         //     callback = (entries, observer) => {
@@ -187,6 +217,19 @@ $(document).ready(function(){
         const popup = $(this).attr('data-popup')
         $(popup).addClass('_open')
         $('body').addClass('_lock')
+    })
+
+    //video banner popup
+    $('.popup-banner__video__container').click(function(e){
+        $(this).children('.popup-banner__play').css('display', 'none')
+        $(this).children('.popup-banner__bg').css('display', 'none')
+        //$('.popup-banner__video__container video')[0].load()
+        $('.popup-banner__video__container video')[0].play()
+    })
+
+    $('.popup-banner__video .popup__close').click(function(e){
+        $('.popup-banner__video__container video')[0].pause()
+        $('.popup-banner__play').css('display', 'block')
     })
 
     //date counter year
@@ -295,5 +338,25 @@ $(document).ready(function(){
         },
         slidesPerView: 1,
         spaceBetween: 18,
+        on:{
+            init: setCurrentCounter,
+            slideChange: counterChange,
+        }
     })
+
+    function setCurrentCounter(swiper){
+        let currentCounts = document.querySelectorAll('.works-swiper__counter .current')
+        let allCounts = document.querySelectorAll('.works-swiper__counter .all')
+
+        let index = swiper.activeIndex + 1;
+        let swiperLength = swiper.slides.length
+
+        currentCounts.forEach(currentCount => currentCount.innerHTML = index)
+        allCounts.forEach( allCount => allCount.innerHTML = swiperLength)
+    }
+    function counterChange(swiper) {
+        let currentCounts = document.querySelectorAll('.works-swiper__counter .current')
+        let index = swiper.activeIndex + 1;
+        currentCounts.forEach(currentCount => currentCount.innerHTML = index)
+    }
 })
