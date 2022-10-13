@@ -1012,6 +1012,7 @@ section {
         -webkit-overflow-scrolling: auto !important;
         /* width */
         &::-webkit-scrollbar {
+            display: block;
             width: px-to-rem(8);
         }
         /* Track */

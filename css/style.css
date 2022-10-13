@@ -110,6 +110,8 @@ body._lock, body._lock__pop {
   left: 0;
   width: 100%;
   height: auto;
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
 }
 
 input {
@@ -1454,6 +1456,7 @@ section {
   /* Handle */
 }
 .popup__content::-webkit-scrollbar {
+  display: block;
   width: 0.5rem;
 }
 .popup__content::-webkit-scrollbar-track {
