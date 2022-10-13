@@ -143,7 +143,7 @@ $(document).ready(function(){
     }
 
     //menu anchors
-    $('.menu-list__item').click(function(e){
+    $('.menu-list__item, .works__btn').click(function(e){
         e.preventDefault()
         const goto = $(e.target).attr('data-goto')
         const currentIndex = $(e.target).attr('data-index')

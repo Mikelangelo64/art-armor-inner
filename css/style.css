@@ -1860,6 +1860,7 @@ section {
   }
 }
 .works__img__container {
+  display: block;
   padding-top: 122%;
 }
 .works__img img {
