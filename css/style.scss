@@ -1806,9 +1806,10 @@ section {
     //.horizontal-list__wrapper 
     &__wrapper {
         width: 100%;
+        overflow: none;
         overflow-x: auto;
 
-        -webkit-overflow-scrolling: auto !important;
+        -webkit-overflow-scrolling: touch;
          /* width */
          &::-webkit-scrollbar {
             height: px-to-rem(8);

@@ -2344,8 +2344,9 @@ section {
 }
 .horizontal-list__wrapper {
   width: 100%;
+  overflow: none;
   overflow-x: auto;
-  -webkit-overflow-scrolling: auto !important;
+  -webkit-overflow-scrolling: touch;
   /* width */
   /* Track */
   /* Handle */
