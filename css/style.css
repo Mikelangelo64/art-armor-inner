@@ -1495,6 +1495,9 @@ section {
 .popup__content .works-artist-info__description {
   margin-bottom: 1.875rem;
 }
+.banner {
+  position: relative;
+}
 .banner._mobile {
   padding: 0;
 }
