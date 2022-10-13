@@ -1336,6 +1336,16 @@ section {
 .popup.popup-about .popup__content p:last-child {
   margin-bottom: 0;
 }
+.popup.popup-contacts .popup__content {
+  font-size: 1.125rem;
+  line-height: 140%;
+}
+.popup.popup-contacts .popup__content p {
+  margin-bottom: 1.5625rem;
+}
+.popup.popup-contacts .popup__content p:last-child {
+  margin-bottom: 0;
+}
 .popup::before {
   content: "";
   position: absolute;
@@ -2657,6 +2667,8 @@ section {
   left: 0;
   width: 100%;
   height: 100%;
+  -webkit-transform: translateZ(-1);
+          transform: translateZ(-1);
 }
 .contacts__copyrights {
   line-height: 140%;

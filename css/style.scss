@@ -907,6 +907,20 @@ section {
         }
     }
 
+    &.popup-contacts {
+        .popup__content {
+            @include text-body-1;
+
+            p{
+                margin-bottom: px-to-rem(25);
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
     &::before {
         content: '';
         position: absolute;
@@ -2029,6 +2043,7 @@ section {
             left: 0;
             width: 100%;
             height: 100%;
+            transform: translateZ(-1);
         }
     }
     
