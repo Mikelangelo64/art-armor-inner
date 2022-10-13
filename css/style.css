@@ -1369,6 +1369,7 @@ section {
   width: 100%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+  cursor: pointer;
 }
 .popup.popup-banner .popup-banner__video .popup-banner__play svg, .popup.popup-banner .popup-banner__video .popup-banner__play img {
   width: 100%;
