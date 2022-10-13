@@ -206,7 +206,13 @@ section {
         background-color: var(--color-bg-primary);
 
         .header__logo {
-            filter: invert(1);
+            //filter: invert(1);
+            .logo-white {
+                opacity: 0;
+            }
+            .logo-black {
+                opacity: 1;
+            }
         }
 
         .menu__lang {
@@ -256,7 +262,13 @@ section {
         background-color: var(--color-bg-secondary);
 
         .header__logo {
-            filter: invert(0);
+            //filter: invert(0);
+            .logo-white {
+                opacity: 1;
+            }
+            .logo-black {
+                opacity: 0;
+            }
         }
         
         .menu__lang {

@@ -168,18 +168,24 @@ body{
 }
 
 .custom-logo-link {
+    position: relative;
     display: block;
     width: 100%;
     cursor: pointer;
 
     @include viewport-tablet-min {
         max-width: px-to-rem(202);
+        padding-top: px-to-rem(24);
     }
     @include viewport-phone {
         max-width: px-to-rem(127);
+        padding-top: px-to-rem(13);
     }
 
-    svg{
+    svg, img{
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
         height: auto;
     }
