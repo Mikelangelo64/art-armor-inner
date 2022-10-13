@@ -121,7 +121,6 @@ body{
             color: var(--color-text-secondary);
         }
     }
-
 }
 
 @mixin button-normal {
@@ -137,6 +136,7 @@ body{
 
 @mixin form-input {
     border: unset;
+    border-radius: unset;
     border-bottom: 1px solid var(--color-text-primary);
     font-weight: 400;
     font-size: px-to-rem(18);

@@ -108,6 +108,7 @@ body._lock, body._lock__pop {
 
 input {
   border: unset;
+  border-radius: unset;
   border-bottom: 1px solid var(--color-text-primary);
   font-weight: 400;
   font-size: 1.125rem;
@@ -183,6 +184,7 @@ form div textarea {
 }
 form input {
   border: unset;
+  border-radius: unset;
   border-bottom: 1px solid var(--color-text-primary);
   font-weight: 400;
   font-size: 1.125rem;
@@ -218,6 +220,7 @@ form input::placeholder {
 }
 form textarea {
   border: unset;
+  border-radius: unset;
   border-bottom: 1px solid var(--color-text-primary);
   font-weight: 400;
   font-size: 1.125rem;
@@ -2147,13 +2150,11 @@ section {
       -ms-flex-direction: column;
           flex-direction: column;
 }
-.horizontal__wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
 @media (min-width: 900px) {
   .horizontal__wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     width: 100%;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
@@ -2166,13 +2167,6 @@ section {
 }
 @media (max-width: 899px) {
   .horizontal__wrapper {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
     margin-bottom: 0.625rem;
   }
 }
@@ -2205,12 +2199,6 @@ section {
   z-index: 1;
   cursor: pointer;
 }
-@media (max-width: 899px) {
-  .date {
-    -ms-flex-item-align: end;
-        align-self: flex-end;
-  }
-}
 .date__title {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2218,6 +2206,9 @@ section {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   padding-bottom: 0.3125rem;
 }
 .date__title svg {

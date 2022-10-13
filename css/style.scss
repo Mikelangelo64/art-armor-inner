@@ -1639,17 +1639,15 @@ section {
     
     //.horizontal__wrapper 
     &__wrapper {
-        display: flex;
 
         @include viewport-tablet-min {
+            display: flex;
             width: 100%;
             justify-content: space-between;
             align-items: flex-end;
             margin-bottom: px-to-rem(5);
         }
         @include viewport-phone {
-            flex-direction: column;
-            align-items: flex-start;
             margin-bottom: px-to-rem(10);
         }
     }
@@ -1665,14 +1663,16 @@ section {
     z-index: 1;
     cursor: pointer;
 
-    @include viewport-phone {
-        align-self: flex-end;
-    }
+    // @include viewport-phone {
+    //     margin-left: auto;
+    //     margin-right: 0;
+    // }
     
     //.date__title 
     &__title {
         display: flex;
         align-items: center;
+        justify-content: flex-end;
         padding-bottom: px-to-rem(5);
 
         svg {
