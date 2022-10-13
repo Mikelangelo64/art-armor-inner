@@ -50,9 +50,13 @@ $(document).ready(function(){
     } else{
         $(window).resize(function(){
             $('section').addClass('_mobile')
+            h = document.documentElement.clientHeight
+            $('.banner').css('height', h)
         })
         $(document).ready(function(){
             $('section').addClass('_mobile')
+            h = document.documentElement.clientHeight
+            $('.banner').css('height', h)
         })
     }
     let currentScroll = window.scrollY
