@@ -30,6 +30,7 @@ body{
     overflow-x: hidden;
     height: unset !important;
 
+    -webkit-overflow-scrolling: auto !important;
     /* width */
     &::-webkit-scrollbar {
         width: px-to-rem(8);
