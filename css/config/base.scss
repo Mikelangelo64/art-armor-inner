@@ -1,7 +1,7 @@
 @import './colors.scss';
 @import './settings';
 @import './viewport';
-@import './heading';
+@import './wrap';
 @import './font-size.scss';
 
 *{
@@ -12,6 +12,13 @@
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+* {
+    text-size-adjust: 100%;
+    @include viewport-phone {
+      outline: none;
+    }
 }
 
 body,
@@ -30,26 +37,9 @@ body{
     overflow-x: hidden;
     height: unset !important;
 
-    -webkit-overflow-scrolling: auto !important;
-    /* width */
-    &::-webkit-scrollbar {
-        width: px-to-rem(8);
-    }
-    /* Track */
-    &::-webkit-scrollbar-track {
-        background-color: transparent; 
-        border: 1px solid var(--color-text-primary);
-        //border-radius: px-to-rem(10);
-    }
-    /* Handle */
-    &::-webkit-scrollbar-thumb {
-        background-color: var(--color-text-primary); 
-        //border-radius: px-to-rem(10);
-    }
-
     font-weight: 400;
-    font-size: px-to-rem(18);
-    line-height: 140%;
+    font-size: px-to-rem(16);
+    line-height: 160%;
     color: var(--color-text-primary);
     background-color: var(--color-bg-primary);
 
@@ -58,98 +48,192 @@ body{
     }
 }
 
-@mixin section-white {
-    color: var(--color-text-primary);
-    background-color: var(--color-bg-primary);
+@mixin text-heading-styles {
+    margin: 0;
+    font-family: $font-family;
+    font-weight: normal;
+    line-height: 130%;
 }
 
-@mixin section-black {
-    color: var(--color-text-secondary);
-    background-color: var(--color-bg-secondary);
+@mixin text-heading-1 {
+    @include text-heading-styles;
+    font-weight: 700;
+
+    @include viewport-desktop {
+        font-size: px-to-rem(48);
+    }
+    @include viewport-tablet {
+        font-size: px-to-rem(41);
+    }
+    @include viewport-phone {
+        font-size: px-to-rem(34);
+        line-height: 120%;
+    }
 }
 
-@mixin text-body-1 {
-    font-size: px-to-rem(18);
-    line-height: 140%;
+@mixin text-heading-2 {
+    @include text-heading-styles;
+    font-weight: 700;
+
+    @include viewport-desktop {
+        font-size: px-to-rem(32);
+    }
+    @include viewport-tablet {
+        font-size: px-to-rem(30);
+    }
+    @include viewport-phone {
+        font-size: px-to-rem(28);
+    }
 }
-@mixin text-body-2 {
-    line-height: 140%;
+
+@mixin text-heading-3 {
+    @include text-heading-styles;
+    font-weight: 700;
 
     @include viewport-desktop {
         font-size: px-to-rem(24);
     }
-    @include viewport-tablet-max {
+    @include viewport-tablet {
+        font-size: px-to-rem(22);
+    }
+    @include viewport-phone {
+        font-size: px-to-rem(20);
+    }
+}
+
+@mixin text-heading-4 {
+    @include text-heading-styles;
+    font-weight: 600;
+
+    @include viewport-desktop {
+        font-size: px-to-rem(16);
+    }
+    @include viewport-tablet {
+        font-size: px-to-rem(16);
+    }
+    @include viewport-phone {
+        font-size: px-to-rem(16);
+    }
+}
+
+@mixin text-heading-5 {
+    @include text-heading-styles;
+    font-weight: 600;
+
+    @include viewport-desktop {
+        font-size: px-to-rem(14);
+    }
+    @include viewport-tablet {
+        font-size: px-to-rem(14);
+    }
+    @include viewport-phone {
         font-size: px-to-rem(14);
     }
 }
-@mixin text-body-3 {
-    line-height: 140%;
 
-    font-size: px-to-rem(14);
-}
-@mixin text-body-4 {
-    line-height: 140%;
-    
-    font-size: px-to-rem(10);
+@mixin text-heading-6 {
+    @include text-heading-styles;
+    font-weight: 600;
+
+    @include viewport-desktop {
+        font-size: px-to-rem(12);
+    }
+    @include viewport-tablet {
+        font-size: px-to-rem(12);
+    }
+    @include viewport-phone {
+        font-size: px-to-rem(12);
+    }
 }
 
 @mixin button { 
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid transparent;
-    background-color: transparent;
-    
+    border: 0;
+    border-radius: px-to-rem(50);
+    font-size: px-to-rem(14);
+    line-height: px-to-rem(17);
+    font-weight: 600;
+    padding: px-to-rem(15) px-to-rem(40);
+    color: var(--color-text-secondary);
 
-    &._white {
-        border-color: var(--color-text-secondary);
-        color: var(--color-text-secondary);
-
-        &:hover,
-        &:focus-visible {
-            background-color: var(--color-text-secondary);
-            color: var(--color-text-primary);
-        }
-    }
-
-    &._black {
-        border-color: var(--color-text-primary);
-        color: var(--color-text-primary);
-
-        &:hover,
-        &:focus-visible {
-            background-color: var(--color-text-primary);
-            color: var(--color-text-secondary);
-        }
-    }
 }
 
 @mixin button-normal {
-    @include button;
-    border-radius: px-to-rem(40);
-    transition: background 0.3s ease, color 0.3s ease;
-    font-size: px-to-rem(18);
-    line-height: 130%;
-    font-weight: 700;
-    text-transform: uppercase;
-    padding: px-to-rem(4) px-to-rem(30);
+    position: relative;
+    z-index: 0;
+    max-width: px-to-rem(180);
+    width: 100%;
+    transition: background 0.3s ease;
+    background-color: var(--color-button);
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+        background: rgba(var(--color-text-secondary--rgb), 0.42);
+        opacity: 0.2;
+        filter: blur(13px);
+        border-radius: px-to-rem(50);
+        transition: opacity 0.3s ease;
+        padding: px-to-rem(7) px-to-rem(9);
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background: var(--color-button);
+        border-radius: px-to-rem(50);
+        transition: background 0.3s ease;
+    }
+
+    &:hover,
+    &:focus-visible {
+
+        &::before {
+            opacity: 0;
+        }
+        &::after {
+            background-color: var(--color-button-active);
+        }
+    }          
 }
 
 @mixin form-input {
+    width: 100%;
     border: unset;
-    border-radius: unset;
-    border-bottom: 1px solid var(--color-text-primary);
-    font-weight: 400;
-    font-size: px-to-rem(18);
-    color: inherit;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -webkit-appearance: none;
+    border-bottom: 1px solid var(--color-text-secondary);
     background-color: transparent;
     padding: unset;
-    padding-bottom: 4px;
+    padding-top: 3px;
+    padding-bottom: 6px;
+
+    transition: border 0.3s ease;
+
+    font-weight: 500;
+    font-size: px-to-rem(14);
+    color: var(--color-text-secondary);
 
     &::placeholder {
-        font-weight: 400;
-        font-size: px-to-rem(18);
-        color: inherit;
+        font-weight: 500;
+        font-size: px-to-rem(14);
+        color: var(--color-text-secondary);
+    }
+
+    @at-root label.incorrect input {
+        border-color: var(--color-button);
     }
 }
 
@@ -158,37 +242,145 @@ body{
     margin: 0 auto;
 
     @include viewport-desktop {
-        max-width: px-to-rem(966);
+        max-width: 1140px;
     }
     @include viewport-tablet {
-        max-width: 88.888%;
+        max-width: 90%;
     }
     @include viewport-phone {
-        max-width: 88.888%;
+        max-width: 90%;
     }
 }
 
 .custom-logo-link {
-    position: relative;
     display: block;
+    max-width: px-to-rem(105);
     width: 100%;
     cursor: pointer;
 
-    @include viewport-tablet-min {
-        max-width: px-to-rem(202);
-        padding-top: px-to-rem(24);
+    // @media screen and (max-width: 720px) {
+    //     max-width: 144px;
+    // }
+
+    img{
+        width: 100%;
+        height: auto;
     }
-    @include viewport-phone {
-        max-width: px-to-rem(127);
-        padding-top: px-to-rem(13);
+}
+
+.custom-form-select {
+    position: relative;
+
+    border: unset;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -webkit-appearance: none;
+    border-bottom: 1px solid var(--color-text-secondary);
+
+    transform: unset !important;
+
+    font-family: $font-family;
+    font-size: px-to-rem(14);
+    font-weight: 500;
+    color: var(--color-text-secondary);
+
+    select {
+        display: none;
     }
 
-    svg, img{
+    .select-items div,
+    .select-selected {
+        position: relative;
+        padding: px-to-rem(8) px-to-rem(5);
+        cursor: pointer;
+    }
+
+    .select-selected {
+        //border-bottom: 1px solid var(--color-text-secondary);
+        background-color: var(--color-text-primary);
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 0;
+            width: px-to-rem(10);
+            height: px-to-rem(10);
+
+            background-image: url(../assets/img/label-arrow-down.svg);
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: contain;
+
+            transform: translate(0, -50%);
+            transition: transform 0.3s ease;
+
+            @at-root .select-selected.select-arrow-active::before {
+                transform: translate(0, -50%) rotate(180deg);
+            }
+        }
+    }
+
+    .select-items {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        z-index: 1;
+        //border-radius: px-to-rem(20);
+        background-color: var(--color-text-primary);
+        overflow: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+
+        &.select-hide {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        div {
+            border-top: 1px solid transparent;
+            border-bottom: 1px solid transparent;
+            transition: border 0.3s ease;
+
+            &.same-as-selected {
+                border-color: var(--color-text-secondary);
+                //background-color: var(--color-button);
+            }
+        }
+    }
+
+    .select-pointer {
         position: absolute;
         top: 0;
         left: 0;
+        display: var(--mobile);
         width: 100%;
-        height: auto;
-        transition: opacity 0.3s ease;
+        height: px-to-rem(42);
+        background-color: var(--color-button);
+        will-change: transform;
+
+        @include viewport-tablet-max {
+            display: none;
+        }
+    }
+
+    //.select-items div:hover,
+    .same-as-selected {
+        border-color: var(--color-text-secondary);
+        //background-color: var(--color-button);
+    }
+}
+
+._margin-top {
+    @include viewport-desktop {
+        margin-top: px-to-rem(100);
+    }
+
+    @include viewport-tablet {
+        margin-top: px-to-rem(80);
+    }
+
+    @include viewport-phone {
+        margin-top: px-to-rem(60);
     }
 }
