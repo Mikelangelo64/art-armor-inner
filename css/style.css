@@ -1438,6 +1438,7 @@ section {
   height: 100%;
   overflow-y: auto;
   overflow-x: clip;
+  -webkit-overflow-scrolling: auto !important;
   /* width */
   /* Track */
   /* Handle */
@@ -2320,6 +2321,7 @@ section {
 .horizontal-list__wrapper {
   width: 100%;
   overflow-x: auto;
+  -webkit-overflow-scrolling: auto !important;
   /* width */
   /* Track */
   /* Handle */

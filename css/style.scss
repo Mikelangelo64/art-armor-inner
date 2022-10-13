@@ -997,6 +997,7 @@ section {
         overflow-y: auto;
         overflow-x: clip;
 
+        -webkit-overflow-scrolling: auto !important;
         /* width */
         &::-webkit-scrollbar {
             width: px-to-rem(8);
@@ -1780,6 +1781,7 @@ section {
         width: 100%;
         overflow-x: auto;
 
+        -webkit-overflow-scrolling: auto !important;
          /* width */
          &::-webkit-scrollbar {
             height: px-to-rem(8);
