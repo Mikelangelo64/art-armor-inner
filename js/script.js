@@ -46,17 +46,51 @@ $(document).ready(function(){
 
     if(!isMobile.any()){
         $(window).resize(slide)
+        $(window).resize(function(){
+            if(window.scrollY > h) {
+                makeBlack('.header')
+                makeBlack('.button-svg')
+            } else {
+                makeWhite('.header')
+                makeWhite('.button-svg')
+            }
+        })
         $(document).ready(slide)
+        $(document).ready(function(){
+            if(window.scrollY > h) {
+                makeBlack('.header')
+                makeBlack('.button-svg')
+            } else {
+                makeWhite('.header')
+                makeWhite('.button-svg')
+            }
+        })
     } else{
         $(window).resize(function(){
             $('section').addClass('_mobile')
             h = document.documentElement.clientHeight
             $('.banner').css('height', h)
+            
+            if(window.scrollY > h) {
+                makeBlack('.header')
+                makeBlack('.button-svg')
+            } else {
+                makeWhite('.header')
+                makeWhite('.button-svg')
+            }
         })
         $(document).ready(function(){
             $('section').addClass('_mobile')
             h = document.documentElement.clientHeight
             $('.banner').css('height', h)
+
+            if(window.scrollY > h) {
+                makeBlack('.header')
+                makeBlack('.button-svg')
+            } else {
+                makeWhite('.header')
+                makeWhite('.button-svg')
+            }
         })
     }
     let currentScroll = window.scrollY
